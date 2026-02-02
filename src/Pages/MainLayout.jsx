@@ -580,9 +580,9 @@ useEffect(() => {
             <p className='mainLayoutControlInfo'>Sohbetler</p>
             </>
             }
-            {chats.length == 0 && (<p className='chatsZeroInfo'>Henüz kimseyle sohbet etmemişsiniz, arkadaşlarınızı ekleyin ve sohbet başlatın..</p>)}
             {activeSection == "chats" && (
-                <div className='chatsDiv'>
+              <div className='chatsDiv'>
+                  {chats.length == 0 && (<p className='chatsZeroInfo'>Henüz kimseyle sohbet etmemişsiniz, arkadaşlarınızı ekleyin ve sohbet başlatın..</p>)}
                     {!isReady && (<p className='connectingInfo'>Bağlantı sağlanıyor</p>)}
                     {isReady && chats.length > 0 && (
                       <div className='userChats'>
