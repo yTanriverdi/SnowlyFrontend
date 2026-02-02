@@ -82,12 +82,6 @@ const LoginRegister = () => {
     }
     const registerRes = await userRegisterAsync(UserRegisterDTO);
   }
-
-  useEffect(() => {
-    let et = import.meta.env.VITE_API_BASE_URL;
-console.log(et);
-  }, [])
-
   const [typeChange, setTypeChange] = useState(true);
   return (
     <>
