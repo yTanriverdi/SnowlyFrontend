@@ -56,7 +56,9 @@ const MainLayout = () => {
 
     const getChats = async () => {
       const allChats = await getChatsAsync();
-      setAllChats(allChats.data);
+      if(allChats.success)
+        setAllChats(allChats.data);
+      else return;
     }
     ///#endregion
 
