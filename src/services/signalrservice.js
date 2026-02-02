@@ -21,14 +21,13 @@ export const startSignalRConnection = async (handlers) => {
     .build();
 
     await connection.start();
-    
+
   if (!handlersRegistered && handlers) {
     handlers(connection);
     handlersRegistered = true;
   }
 
   connection.onreconnected(() => {
-    // handler'lar zaten bağlı, tekrar ekleme
     console.log("SignalR reconnected");
   });
 
