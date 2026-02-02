@@ -84,7 +84,8 @@ const LoginRegister = () => {
   }
 
   useEffect(() => {
-    console.log(import.meta.env.VITE_API_BASE_URL);
+    let et = import.meta.env.VITE_API_BASE_URL;
+console.log(et);
   }, [])
 
   const [typeChange, setTypeChange] = useState(true);
