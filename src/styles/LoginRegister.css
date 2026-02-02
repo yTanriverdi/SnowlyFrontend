@@ -1,0 +1,233 @@
+.loginRegister{
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* overflow: hidden; */
+}
+
+.element1{
+    background-color: rgba(1, 252, 231, 0.301);
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 100px 100px rgba(1, 252, 231, 0.301);
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    z-index: -1;
+}
+
+.element2{
+    background-color: rgba(89, 0, 255, 0.301);
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 100px 100px rgba(89, 0, 255, 0.301);
+    position: absolute;
+    right: -150px;
+    bottom: -150px;
+    z-index: -1;
+}
+
+.loginDiv{
+    height: 600px;
+    width: 300px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.966);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.snowlyLogo{
+    margin-top: 30px;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.snowlyAppName{
+    margin-top: 15px;
+}
+
+.loginForm{
+    width: 280px;
+    height: 400px;
+    padding: 30px 0px 30px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginFormWrapper{
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.loginFormWrapper > input{
+    height: 40px;
+    width: 100%;
+    border-top: none;
+    /* border-top: 2px solid rgba(8, 136, 255, 0.18); */
+    border-bottom: 2px solid rgba(8, 136, 255, 0.18);
+    border-right: none;
+    border-left: none;
+    background: transparent;
+    font-size: 15px;
+    padding: 0px 10px 0px 10px;
+}
+
+.noRemember{
+    font-size: 12px;
+    text-align: end;
+    padding: 0px 10px 0px 0px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.loginButton{
+    align-self: center;
+    margin-top: 50px;
+    padding: 10px 40px;
+    color: black;
+    background-color: transparent;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.toRegister{
+    position: absolute;
+    bottom: 5px;
+    font-size: 11px;
+}
+
+.toRegister>span{
+    text-decoration: underline;
+}
+
+
+.registerDiv{
+    height: 700px;
+    width: 300px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.966);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerForm{
+    width: 280px;
+    height: 300px;
+    padding: 30px 0px 30px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerButton{
+    align-self: center;
+    margin-top: 5px;
+    padding: 10px 40px;
+    color: black;
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+
+
+.registerFormWrapper{
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.registerFormWrapper > input{
+    height: 40px;
+    width: 100%;
+    border-top: none;
+    /* border-top: 2px solid rgba(8, 136, 255, 0.18); */
+    border-bottom: 2px solid rgba(8, 136, 255, 0.18);
+    border-right: none;
+    border-left: none;
+    background: transparent;
+    font-size: 15px;
+    padding: 0px 10px 0px 10px;
+}
+
+
+.toLogin, .toRegister{
+    position: absolute;
+    bottom: 5px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.toLogin>span{
+    text-decoration: underline;
+}
+
+
+.loginRunning{
+  --size: 38px; /* düzeltilmiş boyut */
+  
+  width: var(--size);
+  height: var(--size);
+
+  border-radius: 50%;
+  border: calc(var(--size) / 8) solid rgba(255,255,255,0.20);
+  border-top-color: white;
+
+  animation: spin 0.7s linear infinite;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.registerRunning{
+  --size: 38px; /* düzeltilmiş boyut */
+  
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+  border: calc(var(--size) / 8) solid  rgba(255,255,255,0.20);
+  border-top-color: white;
+
+  animation: spin 0.7s linear infinite;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+
+
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loginComp{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginErrorInfo{
+    color: red;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}

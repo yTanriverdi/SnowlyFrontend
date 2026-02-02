@@ -1,0 +1,31 @@
+.info{
+    min-height: 40px;
+    width: 100%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    position: absolute;
+    font-size: 14px;
+    user-select: none;
+    top: 70px;
+}
+
+.infoOk{
+    color: chartreuse;
+    background-color: #0B141A;
+}
+
+
+.infoError{
+    background-color: #0B141A;
+    color: red;
+}
+
+.infoIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}

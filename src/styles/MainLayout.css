@@ -1,0 +1,679 @@
+:root {
+  --real-vh: 100dvh;
+}
+.mainLayout{
+    width: 100%;
+    height: var(--real-vh);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #0B141A;
+    color: #fff;
+}
+
+
+.mainLayoutHeader{
+    height: 70px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid #ccc;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.mainLayoutContent{
+    user-select: none;
+}
+
+.mainLayoutHeader>p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    user-select: none;
+}
+.readyCircle{
+    height: 10px;
+    width: 10px;
+}
+
+.readyCircleGreen{
+    color: chartreuse;
+}
+
+.readyCircleRed{
+    color: red;
+}
+
+.mainLayoutIcon{
+    height: 50px;
+    width: 50px;
+}
+
+.appBar{
+    position: fixed;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    bottom: 0;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    user-select: none;
+}
+
+.appBarButton.appBarActive{
+    color: #fff;
+}
+
+.appBarButton{
+    color: blueviolet;
+    padding: 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    &:hover{
+        color: #fff;
+    }
+}
+
+.appBarButtonIcon{
+    font-size: 20px;
+}
+
+.appBarButtonIconMessage{
+    font-size: 18px;
+}
+
+.mainLayoutControlInfo{
+    padding: 15px;
+}
+
+.chatsDiv{
+    padding: 15px;
+    font-size: 11px;
+}
+
+
+.friendsHeader{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.friendsButtons{
+    color: blueviolet;
+    padding: 15px;
+    background-color: transparent;
+    border-bottom: 1px solid #ccc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover{
+        color: #fff;
+    }
+}
+
+.friendsButtons.friendsButtonsActive{
+    color: #fff;
+}
+
+.addFriend{
+    padding: 15px;
+}
+
+.addFriendForm{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.addFriendForm>input{
+    height: 40px;
+    padding: 0px 10px 0px 10px;
+    font-size: 15px;
+    width: 400px;
+}
+
+.addFriendButton{
+    background-color: transparent;
+    color:blueviolet ;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border: none;
+    &:active{
+        color: #fff;
+    }
+}
+
+
+.foundFriend{
+    background-color: rgba(137, 43, 226, 0.164);
+    height: 50px;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.foundFriendButton{
+    background-color: transparent;
+    color: chartreuse;
+    padding: 5px 10px 5px 10px;
+    border: none;
+    cursor: pointer;
+    &:active{
+        color: #fff;
+    }
+}
+
+.foundFriendButtonRed{
+    background-color: transparent;
+    color: red;
+    padding: 5px 10px 5px 10px;
+    border: none;
+    cursor: pointer;
+    &:active{
+        color: #fff;
+    }
+}
+
+.notFoundMessage{
+    margin-top: 20px;
+    /* padding: 15px; */
+}
+.myFriendsDiv{
+    padding: 15px;
+}
+
+.myFriendsMessageP{
+    font-size: 11px;
+}
+
+.friendRequestDiv{
+    padding: 15px;
+}
+
+
+.friendCard{
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(137, 43, 226, 0.164);
+    padding: 15px;
+    position: relative;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.friendCardButtons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.friendCardButton{
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.friendCardButtonGreen{
+    color: chartreuse;
+}
+
+
+.friendCardButtonGreen:active{
+    color: #fff;
+}
+
+
+.friendCardButtonRed{
+    color: red;
+    font-size: 20px;
+}
+
+.friendCardButtonRed:active{
+    color: #fff;
+}
+
+.friendCardDeleteDiv{
+    position: absolute;
+    background-color: rgb(137, 43, 226);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.friendCardDeleteDiv>p{
+    text-wrap: nowrap;
+}
+
+
+.friendCardDeleteButtons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.friendCardDeleteButton{
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.friendCardDeleteButtonRed{
+    color: red;
+    &:active{
+        color: #fff;
+    }
+}
+
+.friendCardDeleteButtonGreen{
+    color: chartreuse;
+    &:active{
+        color: #fff;
+    }
+}
+
+
+.friendShipForRequesterDelete{
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.friendShipForRequesterDelete:active{
+    color: #fff;
+}
+
+.friendRequestActiveSection{
+    background-color: #121B22;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.myRequestDiv{
+    /* border-top: 1px solid #fff; */
+    margin-top: 15px;
+}
+
+.myFriendRequestsDiv{
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(137, 43, 226, 0.164);
+    padding: 15px;
+    position: relative;
+    justify-content: space-between;
+    user-select: none;
+
+}
+
+.myFriendRequestCount{
+    font-size: 10px;
+}
+
+.myAddresseeDiv{
+    margin-top: 15px;
+}
+
+.waitingFriendRequestP{
+    font-size: 10px;
+}
+
+
+.myFriendRequestDivButtons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.settingsDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.settingsDivInfo{
+    padding: 15px;
+    font-size: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: #ccc;
+    gap: 5px;
+}
+
+.settingsDivEmail{
+    padding: 16px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 15px 0px 15px;
+    border: 1px solid #fff;
+}
+
+.settingsDivEmailInfo{
+    position: absolute;
+    top: -18px;
+    padding: 5px;
+    padding-bottom: 0px;
+    background-color: #0B141A;
+}
+
+.settingsDivButton{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: orange;
+    cursor: pointer;
+    &:active{
+        color: #fff;
+    }
+}
+
+.settingsDivFirstName, .settingsDivLastName, .settingsDivPassword{
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 15px 0px 15px;
+    border: 1px solid #fff;
+}
+
+.settingsDivFirstNameInfo, .settingsDivLastNameInfo, .settingsDivPasswordInfo{
+    background-color: #0B141A;
+    position: absolute;
+    top: -18px;
+    padding: 5px;
+    padding-bottom: 0px;
+}
+
+.userPassword{
+    display: flex;
+}
+
+.logoutdiv{
+    margin: 40px 15px 0px 15px;
+    padding: 0px 15px 0px 0px;
+    position: relative;
+}
+
+.logoutButton{
+    background-color: #0B141A;
+    color: red;
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    &:active{
+        color: #fff;
+    }
+}
+
+.logoutShowDiv{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: red;
+}
+
+.logoutLastButton{
+    background-color: #0B141A;
+    color: red;
+    cursor: pointer;
+    padding: 15px;
+    border: none;
+    &:active{
+        color: #fff;
+    }
+}
+
+
+.updateUserMainDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.updateUserDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.updateUserValidationInfo{
+    padding: 0px 0px 5px 0px;
+    font-size: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: #ccc;
+    gap: 5px;
+}
+
+.updateUserInput{
+    padding: 4px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: orange;
+    width: 300px;
+}
+
+.updateUserButtons{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 5px;
+}
+
+
+.updateUserButtonGreen{
+    background-color: transparent;
+    padding: 5px 5px 5px 5px;
+    border: none;
+    cursor: pointer;
+    color: chartreuse;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:active{
+        color: #fff;
+    }
+}
+
+.updateUserButtonRed{
+    background-color: transparent;
+    padding: 5px 5px 5px 5px;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:active{
+        color: #fff;
+    }
+}
+
+
+.updatePasswordDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.inputPassword{
+    width: 100%;
+}
+
+.updateUserPasswordInputDiv{
+    width: 280px;
+}
+
+.updateUserPasswordInputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+
+.passwordUpdateButtons{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    margin-left: 5px;
+}
+
+.connectingInfo {
+    color: orange;
+    padding: 5px;
+    position: relative;
+    animation: sliding 1s ease-in-out infinite alternate;
+}
+
+@keyframes sliding {
+    from {
+        transform: translateX(-5px);
+    }
+    to {
+        transform: translateX(5px);
+    }
+}
+
+
+.userChatCard{
+    height: 50px;
+    background-color: rgba(137, 43, 226, 0.164);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    &:active{
+        background-color: rgb(137, 43, 226);
+    }
+}
+
+
+
+.userChatCardMain{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+}
+
+.userChatCardName{
+    font-size: 15px;
+}
+
+.userChatCardLastMessage{
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ccc;
+}
+
+.userChatCardInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-direction: column;
+    height: 100%;
+}
+
+.unreadMessageP{
+    color: orange;
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    text-align: center;
+}
+
+.unreadMessageP::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: orange;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.unreadMessageDot{
+    font-size: 8px;
+    display: block;
+}
+
+.sentIcon{
+    font-size: 14px;
+    color: chartreuse;
+}
+
+.sentIconRed{
+    font-size: 14px;
+    color: red;
+}
