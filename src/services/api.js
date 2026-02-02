@@ -1,13 +1,13 @@
 import axios from "axios";
 
-console.log("BASE URL:", api.defaults.baseURL);
-console.log(import.meta.env.VITE_API_URL);
 const api = axios.create(
     {
         baseURL: import.meta.env.VITE_API_URL,
         timeout: 60000
     }
 )
+console.log("BASE URL:", api.defaults.baseURL);
+console.log("ENV URL:", import.meta.env.VITE_API_URL);
 
 
 api.interceptors.request.use(
