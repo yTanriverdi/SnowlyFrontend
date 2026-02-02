@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import "../styles/LoginRegister.css"
 import { useAuth } from '../contexts/AuthContext';
@@ -82,6 +82,10 @@ const LoginRegister = () => {
     }
     const registerRes = await userRegisterAsync(UserRegisterDTO);
   }
+
+  useEffect(() => {
+    console.log(import.meta.env.VITE_API_BASE_URL);
+  }, [])
 
   const [typeChange, setTypeChange] = useState(true);
   return (
