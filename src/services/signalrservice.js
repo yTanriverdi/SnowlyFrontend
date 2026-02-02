@@ -20,6 +20,8 @@ export const startSignalRConnection = async (handlers) => {
     .configureLogging(LogLevel.Information)
     .build();
 
+    await connection.start();
+    
   if (!handlersRegistered && handlers) {
     handlers(connection);
     handlersRegistered = true;
@@ -30,7 +32,6 @@ export const startSignalRConnection = async (handlers) => {
     console.log("SignalR reconnected");
   });
 
-  await connection.start();
 
   return connection;
 };
