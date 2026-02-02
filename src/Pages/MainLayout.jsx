@@ -53,12 +53,17 @@ const MainLayout = () => {
 
 //#region Tüm Sohbetleri getirme
     const [chats, setAllChats] = useState([]);
+    const [chatsLoading, setChatsLoading] = useState(true);
 
     const getChats = async () => {
       const allChats = await getChatsAsync();
-      if(allChats.success)
+      if(allChats.success){
+        setChatsLoading(false);
         setAllChats(allChats.data);
-      else return;
+      }
+      else{
+        setChatsLoading(false);
+      }
     }
     ///#endregion
 
@@ -582,7 +587,7 @@ useEffect(() => {
             }
             {activeSection == "chats" && (
               <div className='chatsDiv'>
-                  {chats.length == 0 && (<p className='chatsZeroInfo'>Henüz kimseyle sohbet etmemişsiniz, arkadaşlarınızı ekleyin ve sohbet başlatın..</p>)}
+                  {!chatsLoading && chats.length == 0 && (<p className='chatsZeroInfo'>Henüz kimseyle sohbet etmemişsiniz, arkadaşlarınızı ekleyin ve sohbet başlatın..</p>)}
                     {!isReady && (<p className='connectingInfo'>Bağlantı sağlanıyor</p>)}
                     {isReady && chats.length > 0 && (
                       <div className='userChats'>
