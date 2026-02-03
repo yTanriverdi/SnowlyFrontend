@@ -6,8 +6,6 @@ const api = axios.create(
         timeout: 60000
     }
 )
-console.log("BASE URL:", api.defaults.baseURL);
-console.log("ENV URL:", import.meta.env.VITE_API_URL);
 
 
 api.interceptors.request.use(

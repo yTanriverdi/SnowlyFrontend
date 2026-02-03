@@ -13,7 +13,7 @@ export const startSignalRConnection = async (handlers) => {
   }
 
   connection = new HubConnectionBuilder()
-    .withUrl(import.meta.env.VITE_SIGNALR_URL, {
+    .withUrl(import.meta.env.VITE_SIGNALR_URL,{
       accessTokenFactory: () => localStorage.getItem("jwtToken")
     })
     .withAutomaticReconnect()
