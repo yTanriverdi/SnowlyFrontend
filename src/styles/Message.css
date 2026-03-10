@@ -105,6 +105,7 @@
 .messagesBaloon{
   display: inline-block;
   max-width: 70%;
+  min-width: auto;
   padding: 10px 14px;
   background-color: blueviolet;
   font-size: 14px;
