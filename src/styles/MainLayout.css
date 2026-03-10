@@ -602,7 +602,7 @@
 
 
 .userChatCard{
-    height: 50px;
+    height: 55px;
     background-color: rgb(34, 4, 61);
     display: flex;
     justify-content: space-between;

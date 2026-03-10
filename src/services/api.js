@@ -2,8 +2,8 @@ import axios from "axios";
 
 const api = axios.create(
     {
-        // baseURL: import.meta.env.VITE_API_URL,
-        baseURL: "https://snowlybackend.onrender.com/api",
+        baseURL: import.meta.env.VITE_API_URL,
+        // baseURL: "https://snowlybackend.onrender.com/api",
         timeout: 60000
     }
 )
