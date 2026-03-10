@@ -1,7 +1,7 @@
 .chatHeader{
     user-select: none;
     height: 50px;
-    background-color: rgba(137, 43, 226, 0.164);
+    background-color: rgb(34, 4, 61);
     display: flex;
     justify-content: start;
     align-items: center;
@@ -179,4 +179,25 @@
     display: flex;
     align-items: center;
     color: red;
+}
+
+/* Scrollbar genişliği */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Scrollbar arka planı */
+::-webkit-scrollbar-track {
+  background: #0B141A;
+}
+
+/* Scrollbar kaydırma kısmı */
+::-webkit-scrollbar-thumb {
+  background: blueviolet;
+  border-radius: 10px;
+}
+
+/* Hover efekti */
+::-webkit-scrollbar-thumb:hover {
+  background: blueviolet;
 }

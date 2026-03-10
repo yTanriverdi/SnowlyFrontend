@@ -19,8 +19,8 @@ export const startSignalRConnection = async () => {
   }
 
   connection = new HubConnectionBuilder()
-    .withUrl(import.meta.env.VITE_SIGNALR_URL,{
-    // .withUrl("https://snowlybackend.onrender.com/snowlyHub",{
+    // .withUrl(import.meta.env.VITE_SIGNALR_URL,{
+    .withUrl("https://snowlybackend.onrender.com/snowlyHub",{
       accessTokenFactory: () => localStorage.getItem("jwtToken")
     })
     .withAutomaticReconnect()
