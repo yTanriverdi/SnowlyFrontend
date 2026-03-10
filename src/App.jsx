@@ -6,8 +6,18 @@ import { FriendShipProvider } from './contexts/FriendShipContext'
 import { MessageProvider } from './contexts/MessageContext'
 import Message from './Pages/Message'
 // import Main from './Pages/Main'
+import { startSignalRConnection } from './services/signalrservice'
+import { useEffect } from 'react'
 
 function App() {
+
+ useEffect(() => {
+    const initSignalR = async () => {
+      await startSignalRConnection();
+    };
+
+    initSignalR();
+  }, []);
 
   return (
     <>

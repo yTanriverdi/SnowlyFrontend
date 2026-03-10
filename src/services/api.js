@@ -3,6 +3,7 @@ import axios from "axios";
 const api = axios.create(
     {
         baseURL: import.meta.env.VITE_API_URL,
+        // baseURL: "https://snowlybackend.onrender.com/api",
         timeout: 60000
     }
 )
@@ -32,8 +33,6 @@ api.interceptors.response.use(
             localStorage.clear();
             window.location.href = "/giris-ve-kayit";
         }
-
-        console.log(error.response?.data);
         return Promise.resolve({
             success: false,
             data: error.response?.data,

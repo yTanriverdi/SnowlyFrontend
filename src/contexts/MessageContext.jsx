@@ -17,7 +17,7 @@ export const MessageProvider = ({children}) => {
         return getMessagesUserMessagingResponse;
     }
 
-    const getBetweenChatsAsync = async (receiverId, messageSize = 30,         messageStack = 1) => {
+    const getBetweenChatsAsync = async (receiverId, messageSize = 100,        messageStack = 1) => {
     const senderId = localStorage.getItem("userId");
 
      const response = await api.get("Message/GetBetweenUserMessages",

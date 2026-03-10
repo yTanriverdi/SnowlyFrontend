@@ -5,34 +5,42 @@ import {
 } from "@microsoft/signalr";
 
 let connection = null;
-let handlersRegistered = false;
 
-export const startSignalRConnection = async (handlers) => {
-  if (connection && connection.state === HubConnectionState.Connected) {
+export const startSignalRConnection = async () => {
+  // if (connection && connection.state === HubConnectionState.Connected) {
+  //   return connection;
+  // }
+
+  if (connection) {
+    if (connection.state === HubConnectionState.Disconnected) {
+      await connection.start();
+    }
     return connection;
   }
 
   connection = new HubConnectionBuilder()
     .withUrl(import.meta.env.VITE_SIGNALR_URL,{
+    // .withUrl("https://snowlybackend.onrender.com/snowlyHub",{
       accessTokenFactory: () => localStorage.getItem("jwtToken")
     })
     .withAutomaticReconnect()
-    .configureLogging(LogLevel.Information)
+    // .configureLogging(LogLevel.Information)
+    .configureLogging(LogLevel.None)
     .build();
 
     await connection.start();
-
-  if (!handlersRegistered && handlers) {
-    handlers(connection);
-    handlersRegistered = true;
-  }
-
-  connection.onreconnected(() => {
-    console.log("SignalR reconnected");
-  });
-
 
   return connection;
 };
 
 export const getConnection = () => connection;
+
+export const addSignalRHandler = (eventName, handler) => {
+  if (!connection) return;
+  connection.on(eventName, handler);
+};
+
+export const removeSignalRHandler = (eventName, handler) => {
+  if (!connection) return;
+  connection.off(eventName, handler);
+};

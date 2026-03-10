@@ -10,6 +10,7 @@ import { FaLock } from "react-icons/fa";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { BiSolidSend } from "react-icons/bi";
 import { useMessage } from '../contexts/MessageContext';
+import { addSignalRHandler, removeSignalRHandler } from '../services/signalrservice';
 
 const Message = () => {
 
@@ -80,16 +81,25 @@ const onReceiveMessage = useCallback((data) => {
 // HANDLERLER
 // HANDLERLER
 // HANDLERLER
-const registerHandlers = (connection) => {
+const registerHandlers = () => {
     // connection.off("FriendOnline", onFriendOnline);
     // connection.off("FriendOffline", onFriendOffline);
     // connection.off("ReceiveMessage", onReceiveMessage);
 
-    connection.on("friendonline", onFriendOnline);
-    connection.on("friendoffline", onFriendOffline);
-    connection.on("receivemessage", onReceiveMessage);
+    // connection.on("friendonline", onFriendOnline);
+    // connection.on("friendoffline", onFriendOffline);
+    // connection.on("receivemessage", onReceiveMessage);
+
+    addSignalRHandler("friendonline", onFriendOnline);
+    addSignalRHandler("friendoffline", onFriendOffline);
+    addSignalRHandler("receivemessage", onReceiveMessage);
   };
 
+  const removeHandlers = () => {
+    removeSignalRHandler("friendonline", onFriendOnline);
+    removeSignalRHandler("friendoffline", onFriendOffline);
+    removeSignalRHandler("receivemessage", onReceiveMessage);
+  }
    useEffect(() => {
   const receiverId = localStorage.getItem("messageFriendId");
   const receiverFullName = localStorage.getItem("messageFullName");
@@ -116,8 +126,10 @@ const registerHandlers = (connection) => {
     setMyUserId(localStorage.getItem("userId"));
     setIsReady(true);
     await getUserById();
-    await startSignalRConnection(registerHandlers);
-    await getMessageBetweenUsers(30, 1);
+
+    registerHandlers();
+    // await startSignalRConnection(registerHandlers);
+    await getMessageBetweenUsers(100, 1);
   };
 
   init();
@@ -130,6 +142,10 @@ const registerHandlers = (connection) => {
   //     conn.off("receivemessage", onReceiveMessage);
   //   }
   // };
+
+  return () => {
+    removeHandlers();
+  };
 }, []);
 
 

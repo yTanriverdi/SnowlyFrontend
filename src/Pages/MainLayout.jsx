@@ -16,6 +16,7 @@ import { FaUserFriends } from 'react-icons/fa';
 import { IoSettingsSharp } from 'react-icons/io5';
 import { useMessage } from '../contexts/MessageContext';
 import { FaCircle } from "react-icons/fa6";
+import { addSignalRHandler, removeSignalRHandler } from '../services/signalrservice';
 const MainLayout = () => {
 
     // CONTEXT
@@ -97,17 +98,29 @@ const onFriendOffline = () => {
 // SIGNALR HANDLERLERİ
 
 useEffect(() => {
-  const registerHandlers = (connection) => {
+  const registerHandlers = () => {
     // connection.off("FriendRequestCreated", onFriendRequestCreated);
     // connection.off("FriendRequestAccepted", onFriendRequestAccepted);
     // connection.off("FriendOnline", onFriendOnline);
     // connection.off("FriendOffline", onFriendOffline);
 
-    connection.on("friendrequestcreated", onFriendRequestCreated);
-    connection.on("friendrequestaccepted", onFriendRequestAccepted);
-    connection.on("friendonline", onFriendOnline);
-    connection.on("friendoffline", onFriendOffline);
+    addSignalRHandler("friendrequestcreated", onFriendRequestCreated);
+    addSignalRHandler("friendrequestaccepted", onFriendRequestAccepted);
+    addSignalRHandler("friendonline", onFriendOnline);
+    addSignalRHandler("friendoffline", onFriendOffline);
+
+    // connection.on("friendrequestcreated", onFriendRequestCreated);
+    // connection.on("friendrequestaccepted", onFriendRequestAccepted);
+    // connection.on("friendonline", onFriendOnline);
+    // connection.on("friendoffline", onFriendOffline);
   };
+
+  const removeHandlers = () => {
+  removeSignalRHandler("friendrequestcreated", onFriendRequestCreated);
+  removeSignalRHandler("friendrequestaccepted", onFriendRequestAccepted);
+  removeSignalRHandler("friendonline", onFriendOnline);
+  removeSignalRHandler("friendoffline", onFriendOffline);
+};
 
   const init = async () => {
     const wake = await wakeAuthAsync();
@@ -119,7 +132,8 @@ useEffect(() => {
 
     setIsReady(true);
     await getChats();
-    await startSignalRConnection(registerHandlers);
+
+    registerHandlers();
   };
 
   init();
@@ -133,6 +147,9 @@ useEffect(() => {
 //     conn.off("friendoffline", onFriendOffline);
 //   }
 // };
+    return () => {
+      removeHandlers();
+    }
 }, []);
 
     const [activeSection, setActiveSection] = useState("chats");

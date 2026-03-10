@@ -119,6 +119,7 @@
 
 .send{
   border-radius: 16px 0px 16px 16px;
+  background-color: rgb(34, 4, 61);
 }
 .sendMessageDiv {
   flex-shrink: 0;
