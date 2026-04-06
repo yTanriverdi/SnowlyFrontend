@@ -17,17 +17,18 @@
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
-      allowLocalhostAsSecureOrigin: true
-    });
+OneSignalDeferred.push(async function(OneSignal) {
+  await OneSignal.init({
+    appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
+    notifyButton: { enable: true },
+    allowLocalhostAsSecureOrigin: true,
+  });
 
-    const isEnabled = await OneSignal.isPushNotificationsEnabled();
+  const isEnabled = await OneSignal.isPushNotificationsEnabled();
   if (!isEnabled) {
     OneSignal.showNativePrompt();
   }
-  });
+});
 </script>
   </body>
 </html>
