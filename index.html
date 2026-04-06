@@ -19,16 +19,8 @@
 OneSignalDeferred.push(async (OneSignal) => {
   await OneSignal.init({
     appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
-    notifyButton: { enable: true },
+    notifyButton: { enable: true }, // Otomatik izin penceresi + buton
   });
-
-  // İzin durumu kontrolü
-  const permission = Notification.permission; // "default" | "granted" | "denied"
-
-  if (permission === "default") {
-    // Kullanıcıya push izin sor
-    await OneSignal.promptForPushNotifications();
-  }
 });
 </script>
 <script type="module" src="/src/main.jsx"></script>
