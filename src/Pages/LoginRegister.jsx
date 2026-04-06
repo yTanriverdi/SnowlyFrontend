@@ -86,32 +86,28 @@ const LoginRegister = () => {
   const [typeChange, setTypeChange] = useState(true);
 
   useEffect(() => {
-const initOneSignal = async () => {
-      try {
-        await OneSignal.init({
-          appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
-          notifyButton: { enable: true }, // opsiyonel
-        });
-      } catch (err) {
-        console.error("OneSignal init sırasında hata:", err);
-      }
-    };
-initOneSignal();
-  }, [])
+    // SDK'yı başlat
+    OneSignal.init({
+      appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
+      notifyButton: { enable: true }, // opsiyonel
+    });
+  }, []);
 
-
-   const handlePushPermission = async () => {
+  const handlePushPermission = async () => {
     try {
-      // Kullanıcı izin verdiğinde abone olur
-      await OneSignal.registerForPushNotifications();
+      // Kullanıcı Notify Button veya custom UI üzerinden izin verdiğinde otomatik olarak abone olur
+      const subscription = await OneSignal.getSubscription();
 
-      // Doğru şekilde userId al
-      const userId = await OneSignal.getUserId();
-      console.log("Kullanıcı abone oldu, ID:", userId);
+      if (subscription) {
+        console.log("Kullanıcı abone oldu! UserId:", subscription.userId);
+      } else {
+        console.log("Kullanıcı izin vermedi, abonelik yok.");
+      }
     } catch (err) {
       console.error("Push izni sırasında hata:", err);
     }
   };
+
 
   return (
     <>
