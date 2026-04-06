@@ -8,15 +8,32 @@ import Message from './Pages/Message'
 // import Main from './Pages/Main'
 import { startSignalRConnection } from './services/signalrservice'
 import { useEffect } from 'react'
+import OneSignal from "react-onesignal";
 
 function App() {
 
- useEffect(() => {
-    const initSignalR = async () => {
+//  useEffect(() => {
+//     const initSignalR = async () => {
+//       await startSignalRConnection();
+//     };
+
+//     initSignalR();
+//   }, []);
+  useEffect(() => {
+    const initApp = async () => {
+      await OneSignal.init({
+        appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
+        notifyButton: { enable: true },
+      });
+
+      const userId = await OneSignal.getUserId();
+      console.log("Abone kullanıcı ID:", userId);
+
       await startSignalRConnection();
+      console.log("SignalR bağlantısı başlatıldı.");
     };
 
-    initSignalR();
+    initApp();
   }, []);
 
   return (
