@@ -85,30 +85,32 @@ const LoginRegister = () => {
   }
   const [typeChange, setTypeChange] = useState(true);
 
- useEffect(() => {
-  const initOneSignal = async () => {
-    if (window.OneSignal) {
-      await window.OneSignal.init({
-        appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
-        notifyButton: { enable: true, position: "bottom-right" },
-      });
-      console.log("OneSignal init tamam");
-    } else {
-      console.warn("OneSignal SDK yüklenmedi!");
-    }
-  };
+  useEffect(() => {
+    useEffect(() => {
+    const initOneSignal = async () => {
+      // SDK yüklü ve daha önce init edilmemişse başlat
+      if (window.OneSignal && !window.OneSignal.__initialized) {
+        await window.OneSignal.init({
+          appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
+          notifyButton: { enable: true, position: "bottom-right" },
+        });
+        window.OneSignal.__initialized = true;
+        console.log("OneSignal init tamam");
+      } else {
+        console.log("OneSignal zaten init edilmiş veya yüklenmemiş");
+      }
 
-  // Bir tık gecikmeli başlatma, DOM hazır olsun diye
-  const timeout = setTimeout(initOneSignal, 500);
-  return () => clearTimeout(timeout);
-}, []);
+      // SignalR bağlantısını başlat
+      await startSignalRConnection();
+      console.log("SignalR bağlantısı başlatıldı.");
+    };
 
-  const handleInfoButton = () => {
-    alert(
-      "Push bildirimleri için sağ alt köşedeki Notify Button’a tıklayın.\n" +
-        "Notify Button kullanıcıya izin penceresini açar ve abonelik oluşturur."
-    );
-  };
+    // DOM tamamen yüklenene kadar küçük gecikme
+    const timeout = setTimeout(initOneSignal, 500);
+    return () => clearTimeout(timeout);
+  }, []);
+  
+  }, []);
 
 
 
