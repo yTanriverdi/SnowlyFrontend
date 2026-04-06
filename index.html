@@ -23,8 +23,10 @@ OneSignalDeferred.push(async (OneSignal) => {
     allowLocalhostAsSecureOrigin: true,
   });
 
-  // Kullanıcının izin durumunu kontrol et
-  const permission = await OneSignal.getNotificationPermission();
+  // İzin durumu kontrolü (v16+)
+  const permission = await OneSignal.getNotificationPermission?.() 
+                      || Notification.permission;
+
   if (permission !== "granted") {
     OneSignal.showNativePrompt(); // izin yoksa sor
   }
