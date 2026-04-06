@@ -13,7 +13,7 @@ export default defineConfig({
         name: 'Snowly',
         short_name: 'Snowly',
         description: 'Snowly mesajlaşma uygulaması',
-        theme_color: '#1D4ED8',
+        theme_color: '#0b141a',
         background_color: '#ffffff',
         display: 'standalone',
         start_url: '/',
