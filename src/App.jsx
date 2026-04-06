@@ -12,48 +12,13 @@ import OneSignal from 'react-onesignal'
 
 function App() {
 
-//  useEffect(() => {
-//     const initSignalR = async () => {
-//       await startSignalRConnection();
-//     };
-
-//     initSignalR();
-//   }, []);
-  useEffect(() => {
-  const initApp = async () => {
-    try {
-      // 1️⃣ OneSignal init
-      await OneSignal.init({
-        appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
-        notifyButton: { 
-          enable: true, 
-          position: "bottom-right", 
-          theme: "default"
-        },
-      });
-
-      // 2️⃣ Kullanıcının abone ID'si (null ise henüz izin verilmemiş)
-      const userId = await OneSignal.getUserId();
-      console.log("Abone kullanıcı ID:", userId);
-
-      // Eğer kullanıcı izin vermediyse manuel prompt çağrısı
-      if (!userId) {
-        console.log("Kullanıcı henüz abone değil, Notify Button tıklamasını bekle.");
-        // opsiyonel: kendi buton ile manuel izin isteyebilirsin
-        // await OneSignal.registerForPushNotifications();
-      }
-
-      // 3️⃣ SignalR bağlantısı
+ useEffect(() => {
+    const initSignalR = async () => {
       await startSignalRConnection();
-      console.log("SignalR bağlantısı başlatıldı.");
+    };
 
-    } catch (err) {
-      console.error("Init sırasında hata:", err);
-    }
-  };
-
-  initApp();
-}, []);
+    initSignalR();
+  }, []);
 
   return (
     <>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import "../styles/LoginRegister.css"
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import OneSignal from 'react-onesignal';
 
 const LoginRegister = () => {
 
@@ -83,9 +84,42 @@ const LoginRegister = () => {
     const registerRes = await userRegisterAsync(UserRegisterDTO);
   }
   const [typeChange, setTypeChange] = useState(true);
+
+  useEffect(() => {
+const initOneSignal = async () => {
+      try {
+        await OneSignal.init({
+          appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
+          notifyButton: { enable: true }, // opsiyonel
+        });
+      } catch (err) {
+        console.error("OneSignal init sırasında hata:", err);
+      }
+    };
+initOneSignal();
+  }, [])
+
+
+   const handlePushPermission = async () => {
+    try {
+      // Kullanıcı izin verdiğinde abone olur
+      await OneSignal.registerForPushNotifications();
+
+      // Doğru şekilde userId al
+      const userId = await OneSignal.getUserId();
+      console.log("Kullanıcı abone oldu, ID:", userId);
+    } catch (err) {
+      console.error("Push izni sırasında hata:", err);
+    }
+  };
+
   return (
     <>
     <section className='loginRegister'>
+      <button className='notificationButton' onClick={handlePushPermission}>
+          Bildirimleri etkinleştir
+      </button>
+
         {typeChange ? (
           <div className='loginDiv'>
             <img className='snowlyLogo' src='/Snowly.png' alt='Snowly Logo'/>
