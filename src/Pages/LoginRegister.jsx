@@ -86,27 +86,47 @@ const LoginRegister = () => {
   const [typeChange, setTypeChange] = useState(true);
 
   useEffect(() => {
-    // SDK'yı başlat
-    OneSignal.init({
-      appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
-      notifyButton: { enable: true }, // opsiyonel
-    });
+    const initApp = async () => {
+      try {
+        // OneSignal SDK başlat
+        await OneSignal.init({
+          appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
+          notifyButton: {
+            enable: true,          // sağ alt köşede otomatik izin butonu
+            position: "bottom-right",
+            theme: "default",
+          },
+        });
+        // Kullanıcı zaten izin verdiyse userId al
+        const userId = await OneSignal.getUserId();
+        console.log("Mevcut kullanıcı ID:", userId || "Henüz izin verilmedi.");
+      } catch (err) {
+        console.error("Init sırasında hata:", err);
+      }
+    };
+
+    initApp();
   }, []);
 
+  // Kullanıcının kendi butonuyla izin vermesi için
   const handlePushPermission = async () => {
     try {
-      // Kullanıcı Notify Button veya custom UI üzerinden izin verdiğinde otomatik olarak abone olur
-      const subscription = await OneSignal.getSubscription();
+      alert(
+        "Bildirimleri açmak için sağ alt köşedeki Notify Button’a tıklayın."
+      );
 
-      if (subscription) {
-        console.log("Kullanıcı abone oldu! UserId:", subscription.userId);
+      // v3.5.1’de manuel izin yok, Notify Button kullanıcıya izin soracak
+      const userId = await OneSignal.getUserId();
+      if (userId) {
+        console.log("Kullanıcı abone oldu! UserId:", userId);
       } else {
-        console.log("Kullanıcı izin vermedi, abonelik yok.");
+        console.log("Kullanıcı henüz izin vermedi.");
       }
     } catch (err) {
-      console.error("Push izni sırasında hata:", err);
+      console.error("Push izin kontrolü sırasında hata:", err);
     }
   };
+
 
 
   return (
