@@ -15,6 +15,7 @@ export const AuthProvider = ({children}) => {
 const userLoginAsync = async (UserLoginDTO) => {
     const response = await api.post("/User/LoginUser", UserLoginDTO);
 
+    console.log(response);
     if (!response.success) {
         return response;
     }
