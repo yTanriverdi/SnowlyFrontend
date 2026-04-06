@@ -22,12 +22,12 @@
       appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
       allowLocalhostAsSecureOrigin: true
     });
-  });
-  
-  const isEnabled = await OneSignal.isPushNotificationsEnabled();
+
+    const isEnabled = await OneSignal.isPushNotificationsEnabled();
   if (!isEnabled) {
     OneSignal.showNativePrompt();
   }
+  });
 </script>
   </body>
 </html>
