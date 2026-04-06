@@ -88,7 +88,7 @@ const LoginRegister = () => {
   useEffect(() => {
     const initApp = async () => {
       try {
-        // OneSignal SDK başlat
+        // OneSignal SDK başlat, Notify Button aktif
         await OneSignal.init({
           appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
           notifyButton: {
@@ -97,9 +97,9 @@ const LoginRegister = () => {
             theme: "default",
           },
         });
-        // Kullanıcı zaten izin verdiyse userId al
-        const userId = await OneSignal.getUserId();
-        console.log("Mevcut kullanıcı ID:", userId || "Henüz izin verilmedi.");
+        console.log(
+          "Push izinleri Notify Button üzerinden yönetilir. Abone ID’si dashboard veya webhook ile alınır."
+        );
       } catch (err) {
         console.error("Init sırasında hata:", err);
       }
@@ -108,23 +108,11 @@ const LoginRegister = () => {
     initApp();
   }, []);
 
-  // Kullanıcının kendi butonuyla izin vermesi için
-  const handlePushPermission = async () => {
-    try {
-      alert(
-        "Bildirimleri açmak için sağ alt köşedeki Notify Button’a tıklayın."
-      );
-
-      // v3.5.1’de manuel izin yok, Notify Button kullanıcıya izin soracak
-      const userId = await OneSignal.getUserId();
-      if (userId) {
-        console.log("Kullanıcı abone oldu! UserId:", userId);
-      } else {
-        console.log("Kullanıcı henüz izin vermedi.");
-      }
-    } catch (err) {
-      console.error("Push izin kontrolü sırasında hata:", err);
-    }
+  const handleInfoButton = () => {
+    alert(
+      "Push bildirimleri için sağ alt köşedeki Notify Button’a tıklayın.\n" +
+        "Notify Button kullanıcıya izin penceresini açar ve abonelik oluşturur."
+    );
   };
 
 
@@ -132,7 +120,7 @@ const LoginRegister = () => {
   return (
     <>
     <section className='loginRegister'>
-      <button className='notificationButton' onClick={handlePushPermission}>
+      <button className='notificationButton' onClick={handleInfoButton}>
           Bildirimleri etkinleştir
       </button>
 
