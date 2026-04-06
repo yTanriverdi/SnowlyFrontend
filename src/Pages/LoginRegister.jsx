@@ -109,7 +109,7 @@ const LoginRegister = () => {
     const timeout = setTimeout(initOneSignal, 500);
     return () => clearTimeout(timeout);
   }, []);
-  
+
   }, []);
 
 
@@ -117,9 +117,9 @@ const LoginRegister = () => {
   return (
     <>
     <section className='loginRegister'>
-      <button className='notificationButton' onClick={handleInfoButton}>
+      {/* <button className='notificationButton' onClick={handleInfoButton}>
           Bildirimleri etkinleştir
-      </button>
+      </button> */}
 
         {typeChange ? (
           <div className='loginDiv'>
