@@ -85,28 +85,23 @@ const LoginRegister = () => {
   }
   const [typeChange, setTypeChange] = useState(true);
 
-  useEffect(() => {
-    const initApp = async () => {
-      try {
-        // OneSignal SDK başlat, Notify Button aktif
-        await OneSignal.init({
-          appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
-          notifyButton: {
-            enable: true,          // sağ alt köşede otomatik izin butonu
-            position: "bottom-right",
-            theme: "default",
-          },
-        });
-        console.log(
-          "Push izinleri Notify Button üzerinden yönetilir. Abone ID’si dashboard veya webhook ile alınır."
-        );
-      } catch (err) {
-        console.error("Init sırasında hata:", err);
-      }
-    };
+ useEffect(() => {
+  const initOneSignal = async () => {
+    if (window.OneSignal) {
+      await window.OneSignal.init({
+        appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
+        notifyButton: { enable: true, position: "bottom-right" },
+      });
+      console.log("OneSignal init tamam");
+    } else {
+      console.warn("OneSignal SDK yüklenmedi!");
+    }
+  };
 
-    initApp();
-  }, []);
+  // Bir tık gecikmeli başlatma, DOM hazır olsun diye
+  const timeout = setTimeout(initOneSignal, 500);
+  return () => clearTimeout(timeout);
+}, []);
 
   const handleInfoButton = () => {
     alert(
