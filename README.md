@@ -1,16 +1,36 @@
-# React + Vite
+# Snowly - TR
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Snowly Frontend, gerçek zamanlı mesajlaşma programımının ön yüzüdür
+Kullanıcılar arası iletişimi sağlamak, mesaj yönetimini gerçekleştirmek amacıyla backende istek için tasarlanmıştır
 
-Currently, two official plugins are available:
+## Özellikler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Gerçek zamanlı mesajlaşma altyapısı (SignalR ile sağlıyorum)
+* Kullanıcı yönetimi
+* Kimlik doğrulama ve yetkilendirme (JWT kullandım)
+* RESTful API (Uygulamanın dışarıya açılması için API yapısı kurdum)
+* Veritabanı entegrasyonu (PostgreSQL kullandım ve veritabanımı Neon.com üzerinden oluşturdum)
+* MediatR kütüphanesini kullandım (Her işlem için özel handlerlar yazmak geliştirilmeyi esnek hale getiriyor)
 
-## React Compiler
+## Kullanılan Teknolojiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* .NET Core (WebAPI geliştirme)
+* MediatR (CQRS ve loose coupling için)
+* PostgreSQL (İlişkisel veritabanı)
+* Neon (Veritabanı barınması için)
+* Render (Projenin canlıya alınması için)
+* FluentValidation (API istekleri sırasında doğrulama yapmak için)
+* SignalR (Gerçek zamanlı iletişim için)
+* JWT (Kullanıcıların kimliklerinin doğrulanması ve uygulama içerisinde yetkilendirme)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Proje Yapısı
+
+Projeyi, Clean Architecture prensiplerine uygun olarak katmanlı bir yapı ile geliştirdim
+Katmanlar arası bağımlılık minimum seviyede tuttum ve iş mantığı ayrıştırdım
+
+* **Application** (Uygulamanın iş mantığı / CQRS yapısı ile Handlerları burada yazdım)
+* **Domain** (Uygulamanın sınıflarının bulunduğu katman)
+* **Infrastructure** (Uygulamanın veritabanı bağlantısının ve işlemlerinin yapıldığı katman)
+* **WebAPI** (Uygulamanın dışarıya açılan kısmı / HTTP isteklerinin karşılandığı katman)
+  
