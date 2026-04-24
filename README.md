@@ -62,13 +62,13 @@ API işlemleri belirlenmiş Context Provider içerisinde tasarlanmıştır
 
 **Giriş Sayfası**
 
-<img width="300" height="700" alt="IMG_5414" src="https://github.com/user-attachments/assets/4a0884d5-80a8-4268-bfc8-e74a70c1c1c8" />
+<img width="300" height="500" alt="IMG_5414" src="https://github.com/user-attachments/assets/4a0884d5-80a8-4268-bfc8-e74a70c1c1c8" />
 
 ---
 
 **Kayıt Sayfası**
 
-<img width="300" height="700" alt="IMG_5415" src="https://github.com/user-attachments/assets/c148e54d-aa00-41ad-b312-f074a1275b1f" />
+<img width="300" height="500" alt="IMG_5415" src="https://github.com/user-attachments/assets/c148e54d-aa00-41ad-b312-f074a1275b1f" />
 
 ---
 
@@ -76,7 +76,7 @@ API işlemleri belirlenmiş Context Provider içerisinde tasarlanmıştır
 
 Tüm sohbetler burada görünür
 
-<img width="300" height="700" alt="IMG_5417" src="https://github.com/user-attachments/assets/1f291590-5cd9-4ffc-8d83-a4f69d63158a" />
+<img width="300" height="500" alt="IMG_5417" src="https://github.com/user-attachments/assets/1f291590-5cd9-4ffc-8d83-a4f69d63158a" />
 
 ---
 
@@ -84,7 +84,7 @@ Tüm sohbetler burada görünür
 
 Arkadaşlık kurduğunuz kişiler burada listelenir. Direkt mesajlara gidebilir veya arkadaşlıktan çıkarabilirsiniz
 
-<img width="300" height="700" alt="IMG_5419" src="https://github.com/user-attachments/assets/0fa67167-9df1-4329-9ae2-1d8fff4456f7" />
+<img width="300" height="500" alt="IMG_5419" src="https://github.com/user-attachments/assets/0fa67167-9df1-4329-9ae2-1d8fff4456f7" />
 
 ---
 
@@ -92,7 +92,7 @@ Arkadaşlık kurduğunuz kişiler burada listelenir. Direkt mesajlara gidebilir 
 
 Arkadaş eklemek istediğiniz kullanıcının E-posta adresi ile arama yaparak kullanıcıya istek gönderebilirsiniz
 
-<img width="300" height="700" alt="IMG_5420" src="https://github.com/user-attachments/assets/691a65b0-c0e1-42ce-9d83-5e65dbf322b6" />
+<img width="300" height="500" alt="IMG_5420" src="https://github.com/user-attachments/assets/691a65b0-c0e1-42ce-9d83-5e65dbf322b6" />
 
 ---
 
@@ -100,7 +100,7 @@ Arkadaş eklemek istediğiniz kullanıcının E-posta adresi ile arama yaparak k
 
 Arkadaşlık isteği gönderdiğiniz ve size gelen arkadaşlık isteklerini görüntüleyebilir ve kabul - red olarak seçim yapabilirsiniz
 
-<img width="300" height="700" alt="IMG_5421" src="https://github.com/user-attachments/assets/a2fbfb5f-24d4-4545-a5fb-bbfd9ed91c14" />
+<img width="300" height="500" alt="IMG_5421" src="https://github.com/user-attachments/assets/a2fbfb5f-24d4-4545-a5fb-bbfd9ed91c14" />
 
 ---
 
@@ -110,7 +110,7 @@ Arkadaşlık isteği gönderdiğiniz ve size gelen arkadaşlık isteklerini gör
 * Burada görünen mesajlar sadece kullanıcılar arasında görülür. Veritabanında şifrelenmiş şekilde depolanır ve istek anında backend şifresini açarak mesajları getirir
 * Kullanıcının çevrimiçi olup olmadığı SignalR üzerindeki bağlantıdan alınarak anlık olarak gösterilir
 
-<img width="300" height="700" alt="IMG_5416" src="https://github.com/user-attachments/assets/d1b4f269-59d8-479c-a491-c1382055fdb4" />
+<img width="300" height="500" alt="IMG_5416" src="https://github.com/user-attachments/assets/d1b4f269-59d8-479c-a491-c1382055fdb4" />
 
 ---
 
