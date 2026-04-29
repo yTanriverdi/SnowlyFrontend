@@ -118,7 +118,7 @@ Arkadaşlık isteği gönderdiğiniz ve size gelen arkadaşlık isteklerini gör
 
 Kullanıcılar İsim - Soyisim ve Şifrelerini kolayca değiştirebilirler
 
-<img width="300" height="700" alt="IMG_5422" src="https://github.com/user-attachments/assets/43aa3ceb-9050-4d72-b2bf-59eb8564e6a5" />
+<img width="300" height="500" alt="IMG_5422" src="https://github.com/user-attachments/assets/43aa3ceb-9050-4d72-b2bf-59eb8564e6a5" />
 
 
 
