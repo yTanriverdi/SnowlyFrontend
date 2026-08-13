@@ -87,7 +87,7 @@ const LoginRegister = () => {
 
   useEffect(() => {
     useEffect(() => {
-    const initOneSignal = async () => {
+      /* const initOneSignal = async () => {
       if (window.OneSignal && !window.OneSignal.__initialized) {
         await window.OneSignal.init({
           appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
@@ -97,13 +97,13 @@ const LoginRegister = () => {
         console.log("OneSignal init tamam");
       } else {
         console.log("OneSignal zaten init edilmiş veya yüklenmemiş");
-      }
+      }*/
 
       await startSignalRConnection();
       console.log("SignalR bağlantısı başlatıldı.");
     };
 
-    const timeout = setTimeout(initOneSignal, 500);
+    /*const timeout = setTimeout(initOneSignal, 500);*/
     return () => clearTimeout(timeout);
   }, []);
 
