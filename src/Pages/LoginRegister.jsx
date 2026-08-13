@@ -104,7 +104,7 @@ const LoginRegister = () => {
     };
 
     /*const timeout = setTimeout(initOneSignal, 500);*/
-    return () => clearTimeout(timeout);
+    /*return () => clearTimeout(timeout);*/
   }, []);
 
 
