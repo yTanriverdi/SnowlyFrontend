@@ -88,7 +88,6 @@ const LoginRegister = () => {
   useEffect(() => {
     useEffect(() => {
     const initOneSignal = async () => {
-      // SDK yüklü ve daha önce init edilmemişse başlat
       if (window.OneSignal && !window.OneSignal.__initialized) {
         await window.OneSignal.init({
           appId: "d2e9bc49-e02f-4169-b0c1-69c3bd574f15",
@@ -100,12 +99,10 @@ const LoginRegister = () => {
         console.log("OneSignal zaten init edilmiş veya yüklenmemiş");
       }
 
-      // SignalR bağlantısını başlat
       await startSignalRConnection();
       console.log("SignalR bağlantısı başlatıldı.");
     };
 
-    // DOM tamamen yüklenene kadar küçük gecikme
     const timeout = setTimeout(initOneSignal, 500);
     return () => clearTimeout(timeout);
   }, []);
@@ -117,10 +114,6 @@ const LoginRegister = () => {
   return (
     <>
     <section className='loginRegister'>
-      {/* <button className='notificationButton' onClick={handleInfoButton}>
-          Bildirimleri etkinleştir
-      </button> */}
-
         {typeChange ? (
           <div className='loginDiv'>
             <img className='snowlyLogo' src='/Snowly.png' alt='Snowly Logo'/>
