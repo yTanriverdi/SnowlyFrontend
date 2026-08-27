@@ -53,7 +53,7 @@ const Message = () => {
 // HANDLERLER
 // HANDLERLER
 // HANDLERLER
-/* const onFriendOnline = (data) => {
+const onFriendOnline = (data) => {
 
   if (data.userId === localStorage.getItem("messageFriendId")) {
     setUser((prev) => ({
@@ -71,7 +71,7 @@ const onFriendOffline = (data) => {
       isOnline: false
     }));
   }
-};*/
+};
 
 const onReceiveMessage = useCallback((data) => {
   setMessages(prev => {
