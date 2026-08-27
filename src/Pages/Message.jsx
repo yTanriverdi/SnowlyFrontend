@@ -53,7 +53,7 @@ const Message = () => {
 // HANDLERLER
 // HANDLERLER
 // HANDLERLER
-const onFriendOnline = (data) => {
+/*const onFriendOnline = (data) => {
 
   if (data.userId === localStorage.getItem("messageFriendId")) {
     setUser((prev) => ({
@@ -71,7 +71,33 @@ const onFriendOffline = (data) => {
       isOnline: false
     }));
   }
-};
+};*/
+
+const onFriendOnline = useCallback((data) => {
+
+  const friendId = localStorage.getItem("messageFriendId");
+
+  if (String(data.userId) === String(friendId)) {
+    setUser(prev => ({
+      ...prev,
+      isOnline: true
+    }));
+  }
+}, []);
+    
+const onFriendOffline = useCallback((data) => {
+
+  const friendId = localStorage.getItem("messageFriendId");
+
+  if (String(data.userId) === String(friendId)) {
+    setUser(prev => ({
+      ...prev,
+      isOnline: false
+    }));
+  }
+}, []);
+
+    
 
 const onReceiveMessage = useCallback((data) => {
   setMessages(prev => {
